@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="data:;base64,=" />
+    <title>NFC</title>
+    <style>
+      .container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding-top: 56.25%;
+      }
+      .responsive-iframe {
+        position: absolute;
+        top: 0;
+        left: 25%;
+        bottom: 0;
+        right: 0;
+        width: 50%;
+        height: 50%;
+      }
+      .centered-thing {
+        position: absolute;
+        margin: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .button1 {
+        position: absolute;
+        background-color: #4CAF50; 
+        color: black; 
+        border: 2px solid white;
+        top : 30%;
+        left : 20px;
+        cursor: pointer;
+      }
+
+      .button1:hover {
+        background-color: white;
+        color: #4CAF50;
+        top : 40px;
+        right : 100px;
+      }
+      .button1 {width: 10%;}
+      .button1 {height: 100px;}
+      .bn632-hover {
+        width: 10%;
+        font-size: 26px;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+        margin: 2%;
+        top: 15%;
+        height: 100px;
+        text-align:center;
+        border: none;
+        background-size: 300% 100%;
+        border-radius: 30px;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+      }
+
+      .bn632-hover:hover {
+        background-position: 100% 0;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+      }
+
+      .bn632-hover:focus {
+        outline: none;
+      }
+
+      .bn632-hover.bn28 {
+        background-image: linear-gradient(
+          to right,
+          #eb3941,
+          #f15e64,
+          #e14e53,
+          #e2373f
+        );
+        box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
+      }
+      .bn632-hover {
+        width: 10%;
+        font-size: 26px;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+        margin: 2%;
+        top: 15%;
+        right: 10%;
+        height: 100px;
+        text-align:center;
+        border: none;
+        background-size: 300% 100%;
+        border-radius: 30px;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+        transform: translateX(360%);
+        visibility: hidden;
+      }
+
+      .bn632-hover:hover {
+        background-position: 100% 0;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+      }
+
+      .bn632-hover:focus {
+        outline: none;
+      }
+
+      .bn632-hover.bn22 {
+          background-image: linear-gradient(
+            to right,
+            #0ba360,
+            #3cba92,
+            #30dd8a,
+            #2bb673
+          );
+          box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+      }
+    </style>
+    <style>
+      body {
+        background-image: url('https://wallpaperboat.com/wp-content/uploads/2019/10/high-resolution-black-background-09.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+      }
+      </style>
+    <button id="my_button" class="bn632-hover bn28">NON</button>
+    <button id="my_button2" class="bn632-hover bn22">OUI</button>
+    <div class="container">
+      <div class="responsive-iframe"<div id="player"></div></div>
+    </div>
+    <script src="http://www.youtube.com/player_api"></script>
+    <script>
+      var player;
+      var x = 0;
+      function onYouTubePlayerAPIReady() {
+        player = new YT.Player("player", {
+          height: "480",
+          width: "960",
+          videoId: "uGXTEKJ6tro",
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+          },
+        });
+      }
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+      function onPlayerStateChange(event) {
+        if(event.data === 0) {          
+          document.getElementById("my_button").style.visibility = "visible";
+          document.getElementById("my_button2").style.visibility = "visible";
+          if(x == 3){
+            document.getElementById("my_button").innerText = 'YouTube';
+            document.getElementById("my_button2").innerText = 'Github';
+          }
+        }
+      }
+      document.getElementById("my_button").onclick = function () {
+        if(x == 3){
+          location.href='https://www.youtube.com/channel/UCfwNqchPW5oOD67bYcKeayw';
+        }
+        if(x == 2){
+          player.loadVideoById("fPP93OGHIWI");
+          document.getElementById("my_button").style.visibility = "hidden";
+          document.getElementById("my_button2").style.visibility = "hidden";
+          x+= 1;
+        }
+        if(x == 1){
+          player.loadVideoById("RNL3oYsUYuc");
+          document.getElementById("my_button").style.visibility = "hidden";
+          document.getElementById("my_button2").style.visibility = "hidden";
+          x+= 1;
+        }
+        if(x == 0){
+          player.loadVideoById("6WcJT11xffQ");
+          document.getElementById("my_button").style.visibility = "hidden";
+          document.getElementById("my_button2").style.visibility = "hidden";
+          x += 1;
+        }
+      };
+      document.getElementById("my_button2").onclick = function () {
+        if(x == 3){
+          location.href = 'https://github.com/Jackson93150';
+        }
+        if(x == 2){
+          player.loadVideoById("fPP93OGHIWI");
+          document.getElementById("my_button").style.visibility = "hidden";
+          document.getElementById("my_button2").style.visibility = "hidden";
+          x+= 1;
+        }
+        if(x == 1){
+          player.loadVideoById("1hkeA3T5xgE");
+          document.getElementById("my_button").style.visibility = "hidden";
+          document.getElementById("my_button2").style.visibility = "hidden";
+          x+= 1;
+        }
+        if(x == 0){
+          player.loadVideoById("UFbcf_VlMNo");
+          document.getElementById("my_button").style.visibility = "hidden";
+          document.getElementById("my_button2").style.visibility = "hidden";
+          x+= 1;
+        }
+      };
+    </script>
+    
+  </head>
+</html>
